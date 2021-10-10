@@ -8,6 +8,11 @@ app.set('env', 'production')
 app.set('cache', true)
 app.disable('x-powered-by')
 
+app.use((req,res,next) => {
+	res.setHeader('Access-Control-Allow-Origin', '*')
+	next()
+})
+
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'static')))
 
