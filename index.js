@@ -2,13 +2,13 @@ const express = require('express');
 const fs = require('fs')
 const app = express();
 const path = require('path')
-
+const cors = require('cors')
 
 app.set('env', 'production')
 app.set('cache', true)
 app.disable('x-powered-by')
 
-
+app.use(cors())
 app.use(express.static(path.join(__dirname, 'static')))
 
 
